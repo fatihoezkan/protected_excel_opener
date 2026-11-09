@@ -1,0 +1,38 @@
+MAKRO SOLVER
+
+1. Copy your Excel files into the input folder.
+2. Double-click START.bat.
+3. Find the unprotected copies and run report in output.
+
+If the folders are missing, run START.bat once to create them.
+
+Supported formats: .xlsb, .xlsm, .xlsx.
+Removes worksheet protection, workbook structure protection, and VBA viewing locks.
+Your input files stay unchanged. Macros are never executed.
+Existing outputs are kept; new copies get a numbered suffix when needed.
+One failed file does not stop the rest of the batch.
+
+Place files directly in input: subfolders are not scanned.
+Files stay in input after processing, so another run processes them again.
+The program runs once each time you start it; it does not watch the folder.
+
+REQUIREMENTS
+Windows, Python 3.14, and the Python Launcher (py).
+The olefile package is included. No Excel installation or internet is required.
+Copy the entire project folder when moving the tool to another computer.
+Python 3.9 is not supported by the current version.
+
+LIMITS
+Does not decrypt files that require a password to open.
+Does not recover old passwords, modify macro login prompts, or support old .xls files.
+Digitally signed files are rejected to avoid invalidating their signatures.
+Macros can still reapply protection when you run them in Excel.
+Check your output in Excel before using it; macro behavior is not tested here.
+
+AUTOMATION
+Run: py -3.14 "FULL_PATH_TO_PROJECT\solver.py"
+This command does not pause for a keypress and can be used in Task Scheduler.
+Exit code 0 means success or an empty input folder; 1 means an error occurred.
+Do not use Python -O, which disables required validation checks.
+
+See README.md for implementation details, testing, and sharing notes.
